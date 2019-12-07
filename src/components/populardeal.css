@@ -1,0 +1,7 @@
+.popular-deal{
+    position: relative;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    background:#f2f5f7;
+}

@@ -8,6 +8,9 @@ import Footer from './components/Footer';
 import Getintouch from './components/Getintouch';
 import SpecialOfffer from './components/SpecialOffer';
 import ServiceContainer from './components/ServiceContainer';
+import RecentDeal from './components/RecentDeal';
+import BestDeal from './components/BestDeal';
+import PopularDeal from './components/PopularDeal';
 
 function App() {
   return (
@@ -16,7 +19,11 @@ function App() {
       <Menubar></Menubar>
       <SpecialOfffer></SpecialOfffer>
       <ServiceContainer></ServiceContainer>
+      <RecentDeal></RecentDeal>
+      <BestDeal></BestDeal>
+      <PopularDeal></PopularDeal>
       <Footer></Footer>
+
     </div>
   );
 }

@@ -1,0 +1,9 @@
+.best-deal{
+    width:100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* max-width: 1170px; */
+    background:#ffff;
+
+}
