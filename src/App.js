@@ -1,24 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './library.css'
+import Navbar from './components/Navbar';
+import Menubar from './components/Menubar';
+import Footer from './components/Footer';
+import Getintouch from './components/Getintouch';
+import SpecialOfffer from './components/SpecialOffer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App column">
+      <Navbar></Navbar>
+      <Menubar></Menubar>
+      <SpecialOfffer></SpecialOfffer>
+      <Footer></Footer>
     </div>
   );
 }

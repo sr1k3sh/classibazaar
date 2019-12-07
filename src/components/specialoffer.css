@@ -1,0 +1,22 @@
+.special-offer{
+    width:100%;
+    /* height:100px; */
+    display: flex;
+    justify-content: center;
+}
+.special-offer .img-holder{
+    background: url(http://staging.classibazaar.com.au/assets/uploads/deals/2962c3d7d9aff85240bd69e45b1b655b.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60%;
+    height: 550px;
+    background-position: center;
+    position: relative;
+}
+.special-offer .offer-details{
+    padding:30px;
+}
+.special-offer .price-point{
+    padding-right:10px;
+    border-right:2px silver solid;
+}
