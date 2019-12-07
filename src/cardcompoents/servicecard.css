@@ -1,0 +1,16 @@
+.service-card{
+    padding:0 20px 0 0;
+    border-right:1px solid #f0f0f0;
+}
+.service-card img{
+    margin-right:20px;
+}
+.service-card .service-title{
+    font-weight:bold;
+    color:"#333";
+
+}
+.service-card .service-title:hover{
+    
+    color:#e59617;
+}
