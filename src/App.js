@@ -5,12 +5,12 @@ import './library.css'
 import Navbar from './components/Navbar';
 import Menubar from './components/Menubar';
 import Footer from './components/Footer';
-import Getintouch from './components/Getintouch';
 import SpecialOfffer from './components/SpecialOffer';
 import ServiceContainer from './components/ServiceContainer';
 import RecentDeal from './components/RecentDeal';
 import BestDeal from './components/BestDeal';
 import PopularDeal from './components/PopularDeal';
+import Getintouch from './components/Getintouch';
 
 function App() {
   return (
@@ -22,6 +22,8 @@ function App() {
       <RecentDeal></RecentDeal>
       <BestDeal></BestDeal>
       <PopularDeal></PopularDeal>
+
+      <Getintouch></Getintouch>
       <Footer></Footer>
 
     </div>

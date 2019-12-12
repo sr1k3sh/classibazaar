@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './specialoffer.css'
 import Button from './Button'
-
+import Heart from '../IconsComponents/Heart'
 export default class SpecialOfffer extends Component {
     render() {
         return (
@@ -15,10 +15,10 @@ export default class SpecialOfffer extends Component {
                             <span className="normal-font" style={{color:"#fff"}}> 41d 9h Remaning</span>
                         </div>
                     </div>
-                    <div className="offer-details column"  style={{width:'40%'}}>
+                    <div className="offer-details column">
                         <div className="row align-center justify-space-between">
                             <span className="title">Atractive Furniture</span>
-                            <img width="18" src="./images/heart.svg"></img>
+                            <Heart></Heart>
                         </div>
                         <div className="row align-center" style={{marginBottom:'12px'}}>
                             <span>Atractive Furnitures</span>
