@@ -1,13 +1,30 @@
 import React, { Component } from 'react'
 import './navbar.css'
+import { func } from 'prop-types';
+import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
+import { Link } from 'react-router-dom';
 export default class Navbar extends Component {
+    
     render() {
         return (
-            <div className="navbar ">
+            <div className="navbar">
                 <div className="container row justify-space-between align-center">
-                    <div className="logo">
-                        <img src="./images/classi-logo.png"></img>
-                    </div>
+                    <Link to='/'>
+                        <div className="logo">
+                            <ProvideMediaMatchers>
+                                <MediaMatcher
+                                mobile={
+                                    <img src="./images/new-mobile-logo.png"></img>
+                                }
+                                desktop={
+                                    <img src="./images/classi-logo.png"></img>
+                                }
+                                />
+
+                            </ProvideMediaMatchers>
+                            
+                        </div>
+                    </Link>
                     <div className="navbar-right" style={{width:'50%'}}> 
                         <div className="search-bar row align-center justify-space-around">
                             <div className="left-div">

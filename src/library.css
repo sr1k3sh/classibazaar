@@ -31,6 +31,9 @@
 .justify-space-even{
     justify-content: space-even;
 }
+.justify-start{
+    justify-content: flex-start;
+}
 .title{
     font-size:22px;
     font-weight:500;
@@ -77,8 +80,14 @@
 .padding-30{
     padding:30px;
 }
+.padding-40{
+    padding:40px;
+}
+.padding-50{
+    padding:50px;
+}
 .main-title{
-    font-size: 32px;
+    font-size: 24px;
     text-transform: capitalize;
     border-bottom:2px solid #40b866;
     font-weight: bold;
@@ -86,4 +95,59 @@
 }
 .color-primary{
     color:#40b866;
+}
+
+.get-icon{
+    width:100%;
+    height:100%;
+    transition:all 0.5s ease-in ;
+}
+.service-icon{
+    width:40px;
+    height:40px;
+}
+.heart{
+    background:#f7f7f7;
+    padding:0 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.feather-heart{
+    width:14px;
+    height:14px;
+    fill:#363b4d;
+    stroke:none;
+    transition: all 0.3s ease-in-out;
+   
+}
+.heart:hover{
+    fill:#fff;
+    background:#f91942;
+}
+.heart:hover .feather-heart{
+    fill:#fff;
+}
+@media only screen and (max-width: 768px) {
+    .container{
+        max-width: 768px;
+        overflow: hidden;
+    }
+} 
+@media (min-width: 768px) {
+    .heart{
+        display: block;
+    }
+}
+.overflow-hidden{
+    overflow: hidden;
+}
+.img-card img{
+    overflow: hidden;
+    width: 100%;
+    transition: all 0.4s ease-in-out ;
+}
+/* hover  */
+.img-card:hover img{
+    transform: scale(1.1);
 }

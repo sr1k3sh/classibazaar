@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import './recentcard.css'
 import Button from '../components/Button'
+import Heart from '../IconsComponents/Heart'
 export default class RecentCard extends Component {
     render() {
         return (
             <div className="recent-card column">
                 <div className="img-card">
+                    <div class="overflow-hidden background-img">
+                        <img src="http://staging.classibazaar.com.au/assets/uploads/deals/thumb/2962c3d7d9aff85240bd69e45b1b655b_thumb.jpg"></img>
+                    </div>
                     <div className="discount-circle row justify-center align-center">
                         <span>25%</span>
                     </div>
@@ -25,7 +29,7 @@ export default class RecentCard extends Component {
                 </div>
                 <div className="padding-10 row justify-space-between">
                     <span style={{fontSize:"12px"}} className="bold">Atractive Furniture...</span>
-                    <img width="12px" src="./images/heart.svg" alt="like"></img>
+                    <Heart></Heart>
                 </div>
                 <div className="padding-10 row align-center justify-space-between" style={{background:'#f7f8fa',borderTop:'1px solid #ededed'}}>
                     <div>

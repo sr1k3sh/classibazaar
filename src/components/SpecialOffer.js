@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
 import './specialoffer.css'
 import Button from './Button'
-
+import Heart from '../IconsComponents/Heart'
 export default class SpecialOfffer extends Component {
     render() {
         return (
             <div className="special-offer">
                 <div className="container row align-center justify-space-between" style={{boxShadow:'1px 1px 1px 1px #eee'}}> 
                     <div className="img-holder">
-                        <img src="./images/offer-banner-img.png" alt="offer"></img>
-                        <div className="row align-center" style={{background:'#e51d28',width:'fit-content',padding:'2px 10px',position:'absolute',top:'10px',right:'10px'}}>
+                        <div className="img-card">
+                            <div class="overflow-hidden background-img">
+                                <img src="http://staging.classibazaar.com.au/assets/uploads/deals/thumb/2962c3d7d9aff85240bd69e45b1b655b_thumb.jpg"></img>
+                            </div>
+                        </div>
+                        <img className="offer-tag" src="./images/offer-banner-img.png" alt="offer"></img>
+                        <div className="row align-center" style={{background:'#e51d28',width:'fit-content',padding:'2px 10px',position:'absolute',top:'10px',right:'10px',borderRadius: '4px',
+    boxShadow: '-1px 3px 7px 0px #d43838'}}>
                             <span className="normal-font" style={{marginRight:'10px',color:'#fff'}}>| </span> 
                             <img style={{marginRight:'10px'}} width="14px" src="./images/clock.svg" alt="clock"/>
                             <span className="normal-font" style={{color:"#fff"}}> 41d 9h Remaning</span>
                         </div>
                     </div>
-                    <div className="offer-details column"  style={{width:'40%'}}>
+                    <div className="offer-details column">
                         <div className="row align-center justify-space-between">
                             <span className="title">Atractive Furniture</span>
-                            <img width="18" src="./images/heart.svg"></img>
+                            <Heart></Heart>
                         </div>
                         <div className="row align-center" style={{marginBottom:'12px'}}>
                             <span>Atractive Furnitures</span>

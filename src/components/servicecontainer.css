@@ -5,3 +5,22 @@
     justify-content: center;    
     padding:20px 0;
 }
+.service-container .s-icon{
+    transform:translateY(40px);
+    transition: all 0.3s ease-in-out;  
+}
+.service-card:hover .s-icon{
+    transform:translateY(-25px);
+}
+@media only screen and (max-width: 768px) {
+    .service-container .ser-card{
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 30px;
+    }
+}
+@media (min-width:768px){
+    .service-container .cards .ser-card{
+        flex-direction: row;
+    }
+}

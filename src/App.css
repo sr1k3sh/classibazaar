@@ -9,3 +9,17 @@
   display: flex;
   justify-content: center;
 }
+.learn-redux{
+  width:100%;
+  display: flex;
+    justify-content: center;
+  background:#eeee;
+}
+a{
+  text-decoration: none;
+  color: #929292;
+  font-size: 13px;
+}
+/* a:active{
+  color:green;
+} */

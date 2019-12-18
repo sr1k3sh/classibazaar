@@ -13,11 +13,40 @@
     height: 400px;
     background-position: center;
     position: relative;
+    overflow: hidden;
+}
+.special-offer .offer-tag{
+    position: absolute;
+    top:10px;
+    left:10px;
 }
 .special-offer .offer-details{
+    width:40%;
     padding:30px;
 }
 .special-offer .price-point{
     padding-right:10px;
     border-right:2px silver solid;
 }
+@media only screen and (max-width: 768px) {
+    .special-offer{
+        padding:10px;
+    }
+   .special-offer div{
+       flex-direction: column;
+   }
+   .special-offer .img-holder{
+       width:100%;
+   }
+   .special-offer .offer-details{
+       width:100%;
+       padding:10px;
+      
+   }
+   .special-offer .offer-details div{
+       align-items:flex-start;
+   }
+ } 
+ @media (min-width: 768px) {
+     
+ }

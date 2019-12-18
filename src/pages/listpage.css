@@ -1,0 +1,6 @@
+.list-page{
+    width:100%;
+    /* background:#102a39; */
+    display: flex;
+    justify-content: center;
+}
