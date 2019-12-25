@@ -3,68 +3,34 @@ import './specialoffer.css'
 import Button from './Button'
 import Heart from '../IconsComponents/Heart'
 import { Link } from 'react-router-dom'
-export default class SpecialOfffer extends Component {
-    constructor() {
-        super();
-        this.state = {
-            error: null,
-            isLoaded: false,
-            items: []
-        };
-    }
+import { connect } from 'react-redux'
+import { fetch_featured_deals } from './../action/ProductActions'
+class SpecialOfffer extends Component {
+  
     componentDidMount() {
-        fetch("http://staging.classibazaar.com.au/api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result.featured_deals
-                    });
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-            
-
+        this.props.dispatch(fetch_featured_deals());
     }
     render() {
-        const { error, isLoaded, items } = this.state;
-            
-            const val = function(){
-                const startDate = '2019-11-27';
-                const endDate   = '2020-06-26';
-                const timeDiff  = (new Date(endDate)) - (new Date(startDate));
-                const days      = timeDiff / (1000 * 60 * 60 * 24)
-            }
-            
-     
+        const { error, loading, products } = this.props;
         if (error) {
             return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
+        } else if (loading) {
             return <div>Loading...</div>;
         } else {
+            console.log(products)
             return (
+              
+
                 <div className="special-offer">
                     <div className="container row align-center justify-space-between">
                         <div className="img-holder">
                             <div className="img-card">
                                 <div class="overflow-hidden background-img">
                                     {
-                                        items.map(item=>(
+                                        products.map(item=>(
                                             <img key={item.id} src={item.image.image_name} alt="image"></img>
                                         ))
-                                    /* {this.state.featured_deals.map(item=>{
-                                    // <img key={item.id} src={item.image} alt="featured image"></img>
-                                
-                                })} */}
+                                  }
                                 </div>
                             </div>
                             <img className="offer-tag" src="./images/tag.svg" alt="offer"></img>
@@ -74,7 +40,7 @@ export default class SpecialOfffer extends Component {
                             }}>
                                 <span className="normal-font" style={{ marginRight: '10px', color: '#fff' }}>| </span>
                                 <img style={{ marginRight: '10px' }} width="14px" src="./images/clock.svg" alt="clock" />
-                                {items.map(item=>(
+                                {products.map(item=>(
                                     
                                     <span className="normal-font" style={{ color: "#fff" }}>
                                         {
@@ -84,21 +50,15 @@ export default class SpecialOfffer extends Component {
                                 ))}
                             </div>
                         </div>
-                        {items.map(item => (
+                        {products.map(item => (
                         <div className="offer-details column">
                             <div className="row align-center justify-space-between">
-                                {/* <ul>
-                                   
-                                </ul> */}
+                             
                                 
                                     <span className="title" key={item.id}>
                                         {item.dealstitle}
                                     </span>
-                               
-                                {/* {this.state.featured_deals.map(item => <span key={item.id}>
-                                {console.log(item)}
-                            </span>)} */}
-                                {/* <span className="title">Atractive Furniture</span> */}
+                   
                                 <Heart></Heart>
                             </div>
                             <div className="row align-center" style={{ marginBottom: '12px' }}>
@@ -130,3 +90,11 @@ export default class SpecialOfffer extends Component {
         
     }
 }
+function mapStateToProps(state){
+    return({ 
+        products: state.products.items,
+        loading: state.products.loading,
+        error: state.products.error
+    })
+}
+export default connect(mapStateToProps)(SpecialOfffer);

@@ -1,32 +1,39 @@
 import React, { Component } from 'react'
-import {getHomeData} from './../action/index'
+
 import {connect} from 'react-redux'
-export class Post extends Component {
-    componentDidMount(){
-        this.props.getHomeData()
-        console.log(this.props.getHomeData)
+
+import {fetch_featured_deals}  from './../action/ProductActions'
+class Post extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(fetch_featured_deals());
     }
+
     render() {
-        const {articles}=this.props
-        // console.log(articles)
+        const { error, loading, products } = this.props;
+        
+        if (error) {
+            return <div>Error! {error.message}</div>;
+        }
+
+        if (loading) {
+            return <div>Loading...</div>;
+        }
         return (
-            <div className="post">
-                <div className="container">
-                    <ul>
-                        {articles.map(item=><li key={item.id}>
-                            {item.title}
-                        </li>)}
-                    </ul>
-                </div>
-            </div>
-        )
+            <ul>
+                
+                {
+                /* {products.map(product => (
+                    <li key={product.id}>{product.name}</li>
+                ))} */}
+            </ul>
+        );
     }
 }
-function mapStateToProps(state){
-    console.log(state)
-    return {
-        articles:state.remoteArticles.slice(0,4)
-       
-    }
-}
-export default connect(mapStateToProps,{getHomeData})(Post);
+
+const mapStateToProps = state => ({
+    products: state.products.items,
+    loading: state.products.loading,
+    error: state.products.error
+});
+
+export default connect(mapStateToProps)(Post);

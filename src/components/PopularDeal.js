@@ -47,9 +47,7 @@ export default class PopularDeal extends Component {
                              {items.map(item=>(
                                     <RecentCard key={item.id} image={item.image} dealstitle={item.dealstitle} subtitle={item.subtitle} fake={item.fake} product_price={item.product_price} discount={item.discount} actual_price={item.actual_price} image={item.image.image_name}></RecentCard>
                                 ))}
-                            {/* <RecentCard></RecentCard>
-                            <RecentCard></RecentCard>
-                            <RecentCard></RecentCard> */}
+                        
                         </div>
                     </div>
                 </div>

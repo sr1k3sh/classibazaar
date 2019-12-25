@@ -4,28 +4,18 @@ import ServiceContainer from './../components/ServiceContainer';
 import RecentDeal from './../components/RecentDeal';
 import BestDeal from './../components/BestDeal';
 import PopularDeal from './../components/PopularDeal';
+import Post from './../components/Post';
 import { getHomeData } from './../action/index'
 import { connect } from 'react-redux'
 
 
 export default class HomePage extends Component {
-    constructor(){
-        super();
-        this.state={
-            data:[]
-        }
-    }
-    componentWillMount(){
-        fetch('http://staging.classibazaar.com.au/api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw')
-        .then(response=>response.json())
-        .then(json => {
-            this.setState({data:json})
-        })
-    }
+  
     render() {
         
         return (
            <React.Fragment>
+                <Post></Post>
                 <SpecialOfffer></SpecialOfffer>
                 <ServiceContainer></ServiceContainer>
                 <RecentDeal></RecentDeal>
