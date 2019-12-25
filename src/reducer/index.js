@@ -4,7 +4,8 @@ const initalState={
     articles:[],
     remoteArticles:[],
     crumb:['shopping','home'],
-    count:''
+    count:'',
+    home:[]
 }
 const actions ={
     breadCrumb: {type:'BREAD_CRUMB'},
@@ -34,24 +35,12 @@ function rootReducer(state=initalState,action){
             return Object.assign({},state,{
                         remoteArticles:state.remoteArticles.concat(action.payload)
                     })
+        case "HOME_DATA":
+            return Object.assign({},state,{
+                  home:state.home.concat(action.payload)
+            })
         default:
           return state;
       }
-    // if(action.type==ADD_ARTICLE){
-    //     return Object.assign({},state,{
-    //         articles:state.articles.concat(action.payload)
-    //     })
-    // }
-    // if(action.type=="DATA_LOADED"){
-    //     return Object.assign({},state,{
-    //         remoteArticles:state.remoteArticles.concat(action.payload)
-    //     })
-    // }
-    // if(action.type=act.shopping){
-    //     return{
-    //         breadCrumb:'shopping'
-    //     }
-    // }
-    // return state;
 }
 export default rootReducer;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './servicecard.css'
 export default class ServiceCard extends Component {
-    constructor(){
-        super();
-    }
+    // constructor(){
+    //     super();
+    // }
     render() {
         return (
             <div className="service-card row space-around align-center" style={{...this.props.style}}>

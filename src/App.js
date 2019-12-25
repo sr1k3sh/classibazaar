@@ -12,7 +12,10 @@ import store from './store/index'
 import HomePage from './pages/HomePage';
 import Listpage from './pages/Listpage'
 import { HashRouter as Router, Route } from 'react-router-dom';
+import DetailPage from './pages/DetailPage';
+
 function App() {
+  
   return (
     <Provider store={store}>
       <div className="App column">
@@ -23,6 +26,7 @@ function App() {
             <Route exact path='/' component={HomePage}/>
             <Route path='/shopping' component={Listpage}/>
             <Route path='/Holiday-Travel' component={Listpage}/>
+            <Route path='/detail-page' component={DetailPage}/>
             {/* <Route path="/list" exact component={Listpage}></Route> */}
           
         </Router>

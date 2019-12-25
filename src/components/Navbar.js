@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
 import './navbar.css'
-import { func } from 'prop-types';
+
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import { Link } from 'react-router-dom';
+import $ from 'jquery'
+import DropDown from '../cardcompoents/DropDown';
 export default class Navbar extends Component {
-    
+    constructor(){
+        super()
+        this.state={
+            location:'Australia'
+        }
+    }
+    componentDidMount(){
+        $('.city-dropdown').click(_=>{
+            $('.dropdown').slideToggle()
+        })
+       
+    }
+
     render() {
         return (
             <div className="navbar">
@@ -38,12 +52,13 @@ export default class Navbar extends Component {
                                     <img style={{marginRight:'4px'}} width="14px" src="./images/user.svg" alt="login icons"/>
                                     <span style={{color:'#fff'}}>Login</span>
                                 </div>
-                                <div className="row align-center">
+                                <div className=" city-dropdown row align-center">
                                     <img width="14px" src="./images/map-pin.svg" alt="login icons"/>
-                                    <span style={{color:'#fff',marginRight:'4px'}}>Australia</span>
+                            <span  style={{color:'#fff',marginRight:'4px'}}>{this.state.location}</span>
                                     <img width="14px" src="./images/chevron-down.svg" alt="menu"></img>
                                 </div>
                             </div>
+                            <DropDown></DropDown>
                         </div>
                     </div>
                 </div>

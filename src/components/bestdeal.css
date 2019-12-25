@@ -13,6 +13,8 @@
 .best-deal img{
     transition: all 0.4s ease-in-out ;
     overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 1px 1px 5px 0px #00cc67;
 }
 .best-deal img:hover{
     transform:scale(1.02)

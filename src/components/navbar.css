@@ -6,8 +6,8 @@
     /* max-width: 1170px; */
     background:#102a39;
 }
-.navbar .navbar-right form{
-    
+.navbar .navbar-right{
+    position: relative;
 }
 .navbar .navbar-right input{
     padding:10px;
@@ -16,6 +16,9 @@
     outline: none;
     border: none;
     width:250px;
+}
+.navbar .navbar-right .city-dropdown{
+    cursor: pointer;
 }
 .navbar .navbar-right .search-button{
     padding:10px;

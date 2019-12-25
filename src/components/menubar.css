@@ -9,4 +9,12 @@
 .menubar span{ 
     padding:13px 15px;
     color: #333;
+    transition: all 0.3s ease-in-out;
+}
+.menubar span:hover{
+    background:#40b866;
+    
+}
+.menubar span:hover a{
+    color:#fff;
 }

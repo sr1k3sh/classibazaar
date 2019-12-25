@@ -1,12 +1,17 @@
 .special-offer{
     width:100%;
-    /* height:100px; */
     display: flex;
     justify-content: center;
     
 }
+.special-offer .container{
+    box-shadow: #79797959 0px 5px 15px 0px,inset #79797959 7px -2px 20px 0px;;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 19px;
+}
 .special-offer .img-holder{
-    background: url(http://staging.classibazaar.com.au/assets/uploads/deals/2962c3d7d9aff85240bd69e45b1b655b.jpg);
+    /* background: url(http://staging.classibazaar.com.au/assets/uploads/deals/2962c3d7d9aff85240bd69e45b1b655b.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     width: 60%;
@@ -17,8 +22,10 @@
 }
 .special-offer .offer-tag{
     position: absolute;
-    top:10px;
-    left:10px;
+    top:2px;
+    left:2px;
+    width:40px;
+    transform: rotate(-90deg);
 }
 .special-offer .offer-details{
     width:40%;

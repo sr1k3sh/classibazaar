@@ -1,0 +1,26 @@
+.dropdown{
+    width:fit-content;
+    height:fit-content;
+    background:#eee;
+   
+    display: none;
+    position: absolute;
+    top:100%;
+    right:0;
+    overflow: hidden;
+     border-radius: 4px;
+     box-shadow: 1px 1px 9px 2px #979e9a69;
+}
+.dropdown span {
+    
+    padding:6px 16px;
+    border-bottom: 1px solid #40b8661f;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    transition: all 0.3s ease-in-out;
+}
+.dropdown span:hover{
+    background: #40b866;
+    color:#fff;
+}

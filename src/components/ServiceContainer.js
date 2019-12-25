@@ -10,7 +10,7 @@ export default class ServiceContainer extends Component {
         return (
             <div className="service-container">
                 <div className="ser-card container row align-center justify-space-between">
-                    <div className="cards row justify-space-between">
+                  
                         <ServiceCard style={{height:'50px',overflow:'hidden'}} src="./images/truck.svg" title="Free World Delivery" details="Orders Over $100">
                             <div className="column s-icon">
                                 <Truck fill="#000"></Truck>
@@ -23,8 +23,7 @@ export default class ServiceContainer extends Component {
                                 <Helpline fill="#e59617"></Helpline>
                             </div>
                         </ServiceCard>
-                    </div>
-                    <div className="cards row justify-space-between">
+                   
                         <ServiceCard style={{height:'50px',overflow:'hidden'}} src="./images/money-bag.svg" title="Money Back Guarantee" details="Sign up for Gift">
                             <div className="column s-icon">
                                 <MoneyBag fill="#000"></MoneyBag>
@@ -38,7 +37,7 @@ export default class ServiceContainer extends Component {
                             </div>
                         </ServiceCard>
                         
-                    </div>
+                   
                 </div>
             </div>
         )

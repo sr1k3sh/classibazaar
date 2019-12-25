@@ -2,33 +2,34 @@ import React, { Component } from 'react'
 import './recentcard.css'
 import Button from '../components/Button'
 import Heart from '../IconsComponents/Heart'
+import { Link } from 'react-router-dom'
 export default class RecentCard extends Component {
     render() {
         return (
             <div className="recent-card column">
                 <div className="img-card">
                     <div class="overflow-hidden background-img">
-                        <img src="http://staging.classibazaar.com.au/assets/uploads/deals/thumb/2962c3d7d9aff85240bd69e45b1b655b_thumb.jpg"></img>
+                        <img src={this.props.image} alt="recent card"></img>
                     </div>
                     <div className="discount-circle row justify-center align-center">
-                        <span>25%</span>
+                        <span>{this.props.discount}</span>
                     </div>
                     <div className="column recent-offer" style={{padding:10}}>
-                                <span style={{background:'#40b866',color:"#fff",fontSize:'11px',width:'max-content',padding:'2px 4px'}}>10 + bought</span>   
+                                <span style={{background:'#40b866',color:"#fff",fontSize:'11px',width:'max-content',padding:'2px 4px'}}>{this.props.fake} + bought</span>   
                     </div>
                 </div>
                 <div className="padding-10" style={{borderLeft:"4px solid #40b866"}}>
-                    <span className="title" >Atractive Furniture</span>
+                    <span className="title" >{this.props.dealstitle}</span>
                 </div>
                 <div className="padding-10 row justify-space-between">
-                    <span className="title color-primary">-25%</span>
+                    <span className="title color-primary">-{this.props.discount}%</span>
                     <div className="row justify-space-between align-center">
-                        <span style={{fontSize:'12px',textDecoration:'line-through'}}>40</span>
-                        <span className="title bold">$30</span>
+                        <span style={{ fontSize: '12px', textDecoration: 'line-through' }}>{this.props.product_price}</span>
+                        <span className="title bold">${this.props.actual_price}</span>
                     </div>
                 </div>
                 <div className="padding-10 row justify-space-between">
-                    <span style={{fontSize:"12px"}} className="bold">Atractive Furniture...</span>
+                    <span style={{fontSize:"12px"}} className="bold">{this.props.subtitle}..</span>
                     <Heart></Heart>
                 </div>
                 <div className="padding-10 row align-center justify-space-between" style={{background:'#f7f8fa',borderTop:'1px solid #ededed'}}>
@@ -36,7 +37,9 @@ export default class RecentCard extends Component {
                         <img width="12px" src="./images/clock.svg" alt='clock'></img>
                         <span style={{fontSize:"12px"}}>41d 4h Remaning</span>
                     </div>
-                    <Button text="View Detail"></Button>
+                    <Link to="detail-page">
+                        <Button text="View Detail"></Button>
+                    </Link>
                 </div>
             </div>
         )

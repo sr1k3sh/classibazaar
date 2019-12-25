@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import {getData} from './../action/index'
+import {getHomeData} from './../action/index'
 import {connect} from 'react-redux'
 export class Post extends Component {
     componentDidMount(){
-        this.props.getData()
+        this.props.getHomeData()
+        console.log(this.props.getHomeData)
     }
     render() {
         const {articles}=this.props
-        console.log(articles)
+        // console.log(articles)
         return (
             <div className="post">
                 <div className="container">
@@ -28,4 +29,4 @@ function mapStateToProps(state){
        
     }
 }
-export default connect(mapStateToProps,{getData})(Post);
+export default connect(mapStateToProps,{getHomeData})(Post);

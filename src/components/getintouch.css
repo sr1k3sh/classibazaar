@@ -10,7 +10,9 @@
     padding:15px;
     border-right: 1px solid #40b866;
     border-bottom: 1px solid #40b866;
-    transition:all 0.5s ease-in-out ;
+    border-top:1px solid transparent;
+    border-left: 1px solid transparent;
+    transition:all 0.3s ease-in-out ;
 }
 .get-in-touch .touch-icon:hover{
     border-top:1px solid #40b866;
