@@ -13,9 +13,9 @@ export default class Navbar extends Component {
         }
     }
     componentDidMount(){
-        $('.city-dropdown').click(_=>{
-            $('.dropdown').slideToggle()
-        })
+        // $('.city-dropdown').click(_=>{
+        //     $('.dropdown').slideToggle()
+        // })
        
     }
 
@@ -28,10 +28,10 @@ export default class Navbar extends Component {
                             <ProvideMediaMatchers>
                                 <MediaMatcher
                                 mobile={
-                                    <img src="./images/new-mobile-logo.png"></img>
+                                    <img src="./images/new-mobile-logo.png" alt="mobile"></img>
                                 }
                                 desktop={
-                                    <img src="./images/classi-logo.png"></img>
+                                    <img src="./images/classi-logo.png" alt="desktop"></img>
                                 }
                                 />
 
@@ -39,7 +39,7 @@ export default class Navbar extends Component {
                             
                         </div>
                     </Link>
-                    <div className="navbar-right" style={{width:'50%'}}> 
+                    <div className="navbar-right"> 
                         <div className="search-bar row align-center justify-space-around">
                             <div className="left-div">
                                 <form className="row">
@@ -53,12 +53,12 @@ export default class Navbar extends Component {
                                     <span style={{color:'#fff'}}>Login</span>
                                 </div>
                                 <div className=" city-dropdown row align-center">
-                                    <img width="14px" src="./images/map-pin.svg" alt="login icons"/>
+                                    {/* <img width="14px" src="./images/map-pin.svg" alt="login icons"/>
                             <span  style={{color:'#fff',marginRight:'4px'}}>{this.state.location}</span>
-                                    <img width="14px" src="./images/chevron-down.svg" alt="menu"></img>
+                                    <img width="14px" src="./images/chevron-down.svg" alt="menu"></img> */}
+                                    <DropDown></DropDown>
                                 </div>
                             </div>
-                            <DropDown></DropDown>
                         </div>
                     </div>
                 </div>

@@ -4,20 +4,19 @@ import Button from './Button'
 import Heart from '../IconsComponents/Heart'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetch_featured_deals } from './../action/ProductActions'
+import { fetch_featured_deals } from './../action/FeaturedActions'
 class SpecialOfffer extends Component {
   
     componentDidMount() {
         this.props.dispatch(fetch_featured_deals());
     }
     render() {
-        const { error, loading, products } = this.props;
+        const { error, loading, featured } = this.props;
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (loading) {
             return <div>Loading...</div>;
-        } else {
-            console.log(products)
+        } else {         
             return (
               
 
@@ -27,7 +26,7 @@ class SpecialOfffer extends Component {
                             <div className="img-card">
                                 <div class="overflow-hidden background-img">
                                     {
-                                        products.map(item=>(
+                                        featured.map(item=>(
                                             <img key={item.id} src={item.image.image_name} alt="image"></img>
                                         ))
                                   }
@@ -40,7 +39,7 @@ class SpecialOfffer extends Component {
                             }}>
                                 <span className="normal-font" style={{ marginRight: '10px', color: '#fff' }}>| </span>
                                 <img style={{ marginRight: '10px' }} width="14px" src="./images/clock.svg" alt="clock" />
-                                {products.map(item=>(
+                                {featured.map(item=>(
                                     
                                     <span className="normal-font" style={{ color: "#fff" }}>
                                         {
@@ -50,7 +49,7 @@ class SpecialOfffer extends Component {
                                 ))}
                             </div>
                         </div>
-                        {products.map(item => (
+                        {featured.map(item => (
                         <div className="offer-details column">
                             <div className="row align-center justify-space-between">
                              
@@ -91,10 +90,12 @@ class SpecialOfffer extends Component {
     }
 }
 function mapStateToProps(state){
-    return({ 
-        products: state.products.items,
-        loading: state.products.loading,
-        error: state.products.error
-    })
+    return(
+        {    
+            featured: state.featured.features,
+            loading: state.featured.loading,
+            error: state.featured.error
+        }
+    )
 }
 export default connect(mapStateToProps)(SpecialOfffer);

@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import './library.css';
 import Navbar from './components/Navbar';
@@ -13,6 +13,7 @@ import HomePage from './pages/HomePage';
 import Listpage from './pages/Listpage'
 import { HashRouter as Router, Route } from 'react-router-dom';
 import DetailPage from './pages/DetailPage';
+import ReferCard from './cardcompoents/ReferCard';
 
 function App() {
   
@@ -27,12 +28,12 @@ function App() {
             <Route path='/shopping' component={Listpage}/>
             <Route path='/Holiday-Travel' component={Listpage}/>
             <Route path='/detail-page' component={DetailPage}/>
-            {/* <Route path="/list" exact component={Listpage}></Route> */}
           
+            <ReferCard></ReferCard>
         </Router>
         <NewsLetter></NewsLetter>
                 <Getintouch></Getintouch>
-        {/* <HomePage></HomePage> */}
+    
         <Footer></Footer>
       </div>
     </Provider>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './getintouch.css'
-import RecentCard from './../cardcompoents/RecentCard'
+
 import Facebook from '../IconsComponents/Facebook'
 import Twitter from '../IconsComponents/Twitter'
 import Instagram from '../IconsComponents/Instagram'

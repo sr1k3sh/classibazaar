@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './dropdown.css'
-import $ from 'jquery'
+import Select from 'react-select';
+
 export default class DropDown extends Component {
     constructor(){
         super();
@@ -18,20 +19,34 @@ export default class DropDown extends Component {
             })
    
     }
+    
+    
     render() {
-        const {location}= this.state
+        const techCompanies = [
+            { label: "Apple", value: 1 },
+            { label: "Facebook", value: 2 },
+            { label: "Netflix", value: 3 },
+            { label: "Tesla", value: 4 },
+            { label: "Amazon", value: 5 },
+            { label: "Alphabet", value: 6 },
+        ];
+        // const {location}= this.state
+        
         return (
-            <div className="dropdown " role="menu"> 
-                <div className="dropdown-menu column">
-                    {
-                        location.map(item=>(
-                            <span key={item.id}>{item.cityName}</span>
-                        ))
-                    }
-
-                </div>
-                
+            <div className="dropdown">
+                <Select placeholder="Austrila" options={this.state.location} />
             </div>
+            // <div className="dropdown " role="menu"> 
+            //     <div className="dropdown-menu column">
+            //         {
+            //             location.map(item=>(
+            //                 <span key={item.id}>{item.cityName}</span>
+            //             ))
+            //         }
+
+            //     </div>
+                
+            // </div>
         )
     }
 }

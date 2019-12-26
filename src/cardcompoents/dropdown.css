@@ -1,13 +1,13 @@
 .dropdown{
-    width:fit-content;
-    height:fit-content;
+    /* width:fit-content; */
+    /* height:fit-content; */
     background:#eee;
-   
-    display: none;
-    position: absolute;
-    top:100%;
+    width:100%;
+    /* display: none; */
+    /* position: absolute;
+    top:100%; */
     right:0;
-    overflow: hidden;
+    /* overflow: hidden; */
      border-radius: 4px;
      box-shadow: 1px 1px 9px 2px #979e9a69;
 }

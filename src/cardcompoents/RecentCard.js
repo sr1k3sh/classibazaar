@@ -8,11 +8,11 @@ export default class RecentCard extends Component {
         return (
             <div className="recent-card column">
                 <div className="img-card">
-                    <div class="overflow-hidden background-img">
+                    <div className="overflow-hidden background-img">
                         <img src={this.props.image} alt="recent card"></img>
                     </div>
                     <div className="discount-circle row justify-center align-center">
-                        <span>{this.props.discount}</span>
+                        <span>{this.props.discount} %</span>
                     </div>
                     <div className="column recent-offer" style={{padding:10}}>
                                 <span style={{background:'#40b866',color:"#fff",fontSize:'11px',width:'max-content',padding:'2px 4px'}}>{this.props.fake} + bought</span>   

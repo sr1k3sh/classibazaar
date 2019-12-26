@@ -5,8 +5,8 @@ import RecentDeal from './../components/RecentDeal';
 import BestDeal from './../components/BestDeal';
 import PopularDeal from './../components/PopularDeal';
 import Post from './../components/Post';
-import { getHomeData } from './../action/index'
-import { connect } from 'react-redux'
+
+
 
 
 export default class HomePage extends Component {
@@ -15,7 +15,7 @@ export default class HomePage extends Component {
         
         return (
            <React.Fragment>
-                <Post></Post>
+               
                 <SpecialOfffer></SpecialOfffer>
                 <ServiceContainer></ServiceContainer>
                 <RecentDeal></RecentDeal>

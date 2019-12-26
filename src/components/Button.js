@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 
 export default class Button extends Component {
-    constructor(){
-        super();
-    }
+   
     render() {
         return (
-            <div className="button" style={{width:this.props.width}}>
+            <div className="button" style={{width:this.props.width,padding:this.props.padding}}>
                 <span>{this.props.text}</span>
             </div>
         )

@@ -2,25 +2,17 @@ import React, { Component } from 'react'
 
 import {connect} from 'react-redux'
 
-import {fetch_featured_deals}  from './../action/ProductActions'
-class Post extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(fetch_featured_deals());
-    }
+
+class Post extends Component {
+   
 
     render() {
-        const { error, loading, products } = this.props;
         
-        if (error) {
-            return <div>Error! {error.message}</div>;
-        }
-
-        if (loading) {
-            return <div>Loading...</div>;
-        }
+        
+      
         return (
             <ul>
-                
+                ok
                 {
                 /* {products.map(product => (
                     <li key={product.id}>{product.name}</li>

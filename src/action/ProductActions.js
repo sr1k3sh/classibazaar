@@ -3,25 +3,30 @@ function fetchurl(url) {
         .then(handleErrors)
         .then(res => res.json());
 }
-export function fetch_featured_deals() {
-    return dispatch => {
-        dispatch(fetchProductsBegin());
-        return fetchurl("http://staging.classibazaar.com.au/api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw")
-            .then(json => {
-                dispatch(fetchProductsSuccess(json.featured_deals));
-                return json.featured_deals;
-            })
-            .catch(error =>
-                dispatch(fetchProductsFailure(error))
-            );
-    };
-}
+// export function fetch_featured_deals() {
+//     return dispatch => {
+//         dispatch(fetchProductsBegin());
+//         return 
+//             fetch('http://staging.classibazaar.com.au/api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw')
+//             // .then(handleErrors)
+//             .then(res => res.json())
+//             .then(json => {
+//                 dispatch(fetchProductsSuccess(json.featured_deals));
+               
+//                 return json.featured_deals;
+//             })
+//             .catch(error =>
+//                 dispatch(fetchProductsFailure(error))
+//             );
+//     };
+// }
 export function fetch_recent_deals() {
     return dispatch => {
         dispatch(fetchProductsBegin());
         return fetchurl('http://staging.classibazaar.com.au/api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw')
             .then(json => {
                 dispatch(fetchProductsSuccess(json.recent_deals));
+                // console.log(json)
                 return json.recent_deals;
             })
             .catch(error =>

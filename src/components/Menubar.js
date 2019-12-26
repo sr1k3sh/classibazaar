@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './menubar.css'
-import HomePage from './../pages/HomePage'
-import { HashRouter as Router,Link } from 'react-router-dom'
-import Listpage from '../pages/Listpage'
+
+import {Link } from 'react-router-dom'
+
 export default class Menubar extends Component {
     render() {
         return (

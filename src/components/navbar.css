@@ -8,6 +8,7 @@
 }
 .navbar .navbar-right{
     position: relative;
+    width:60%;
 }
 .navbar .navbar-right input{
     padding:10px;
@@ -19,6 +20,7 @@
 }
 .navbar .navbar-right .city-dropdown{
     cursor: pointer;
+    width:220px;
 }
 .navbar .navbar-right .search-button{
     padding:10px;

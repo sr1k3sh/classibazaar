@@ -3,18 +3,8 @@ import {connect} from 'react-redux'
 import './listpage.css'
 import RecentCard from './../cardcompoents/RecentCard'
 import BreadCrumb from '../components/BreadCrumb'
-class Listpage extends React.Component {
-    // increment = () => {
-    //   this.props.dispatch({ type: 'INCREMENT' });
-    // }
-  
-    // decrement = () => {
-    //   this.props.dispatch({ type: 'DECREMENT' });
-    // }
-    componentDidMount(){
-       this.props.dispatch({type:'BREAD_CRUMB'})
-       console.log(this.props)
-    }
+class Listpage extends Component {
+    
     render() {
       return (
           <React.Fragment>

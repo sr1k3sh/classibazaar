@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './footer.css'
 import {BrowserRouter as Router,Link} from 'react-router-dom'
-import Getintouch from './Getintouch'
+
 export default class Footer extends Component {
     render() {
         return (
