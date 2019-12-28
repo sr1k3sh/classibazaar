@@ -8,7 +8,15 @@ import Google from './../IconsComponents/Google'
 import Instagram from './../IconsComponents/Instagram'
 import Twitter from './../IconsComponents/Twitter'
 import Youtube from './../IconsComponents/Youtube'
+import GoogleMapReact from 'google-map-react'
 export default class DetailPage extends Component {
+    static defaultProps = {
+        center: {
+            lat: 59.95,
+            lng: 30.33
+        },
+        zoom: 11
+    };
     render() {
         return (
             <div className="detail-page">
@@ -98,6 +106,10 @@ export default class DetailPage extends Component {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div style={{width:'100%',height:'400px',padding:'10px'}}>
+                        <GoogleMapReact defaultCenter={this.props.center}
+                            defaultZoom={this.props.zoom}></GoogleMapReact>
                     </div>
                 </div>
                 

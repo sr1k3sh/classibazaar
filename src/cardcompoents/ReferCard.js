@@ -13,23 +13,12 @@ export default class ReferCard extends Component {
         $('.no-thanks').click(_=>{
             $('.refer-card-container').fadeOut()
         })
-        $('.select-section').click(_=>{
+        $('.select-section .button').click(_=>{
             $('.refer-card-container').fadeOut()
         })
     }
     render() {
-        let select1 = [
-            { time: "12:25", zone: 'Asia/Kathmandu', timezone: 'GMT +5:45' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' },
-            { time: "12:25", zone: 'Asia/Delhi', timezone: 'GMT +5:30' }
-        ];
+      
         return (
             <div className="refer-card-container">
                 <di className="refer-card column">
@@ -42,7 +31,7 @@ export default class ReferCard extends Component {
                         <span>For Local <span className="primary-color bold">DAILY DEALS</span></span>
                     </div>
                     <div className="select-section column align-center justify-space-around" style={{height:'100%'}}>
-                        <DropDown options={select1}/>
+                        <DropDown></DropDown>
                         <Button text="continue" padding="10px 10px" width="fit-content"></Button>
                     </div>
                     <div style={{padding:'10px 0'}}>

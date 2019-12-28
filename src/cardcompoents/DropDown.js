@@ -1,75 +1,54 @@
 import React, { Component } from 'react'
-import Options from './Options';
+
 import './dropdown.css'
-// import SimpleBarReact from "simplebar-react";
-// import "simplebar/src/simplebar.css";
-import $ from 'jquery'
+
+import Select from 'react-select'
 export default class DropDown extends Component {
-    constructor() {
+    constructor(){
         super()
-        this.state = {
-            selected: null,
-
+        this.state={
+            selectedOption:'',
+            data:[]
         }
-        this.setWrapperRef = this.setWrapperRef.bind(this);
-        // this.handleClickOutside = this.handleClickOutside.bind(this);
     }
-    componentDidMount() {
-        // document.addEventListener('mousedown', this.handleClickOutside);
-        // $('.dropdowndiv.select').click(function () {
-        //     $('.dropdownlist').fadeToggle()
-        // })
+    handleChange = selectedOption => {
+        this.setState(
+            { selectedOption },
+           
+        );
+    };
+    componentDidMount(){
+        let init=[]
+        fetch('http://staging.classibazaar.com.au/api/deal/cities?fbclid=IwAR1hNrqzKPmLTHsLQ_G-yGV6e-XRi2FCf8FQi2K5LP2CB3Mp4BvqbksJ_hc')
+        .then(res=>{
+            return res.json()
+        })
+        .then(res=>{
+            init=res.map(val=>{
+                return val
+                
+            })
+            this.setState({
+                data:init
+            })
+        })
     }
-    componentWillUnmount() {
-        // document.removeEventListener('mousedown', this.handleClickOutside);
-    }
-    // handleClickOutside(event) {
-    //     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-
-    //         $('.dropdownlist').fadeOut()
-    //     }
-    // }
-    /**
-  * Set the wrapper ref
-  */
-    setWrapperRef(node) {
-        this.wrapperRef = node;
-    }
-    onSelect = (option) => {
-        this.setState({
-            selected: option,
-
-        }, () => {
-            //console.info(this.state);
-        });
-    }
-    getOptions = () => {
-        return this.props.options.map((o, i) => <Options key={i} option={o} onSelect={this.onSelect} />);
-    }
+    
     render() {
-        let items = this.getOptions();
-        // let selected = this.state.selected?this.state.selected.value:'Select'
-        let time = this.state.selected ? this.state.selected.time : '12:45'
-        let zone = this.state.selected ? this.state.selected.zone : 'Asia/Kathmandu'
-        let timezone = this.state.selected ? this.state.selected.timezone : 'GMT+5:45'
-
-
+        const options = [{ "id": "1", "countryId": "5", "cityName": "Sydney", "citycode": "sydney" }, { "id": "2", "countryId": "5", "cityName": "Brisbane", "citycode": "brisbane" }, { "id": "4", "countryId": "5", "cityName": "Melbourne", "citycode": "melbourne" }, { "id": "5", "countryId": "5", "cityName": "Adelaide", "citycode": "adelaide" }, { "id": "6", "countryId": "5", "cityName": "Perth", "citycode": "perth" }, { "id": "7", "countryId": "5", "cityName": "Gold Coast", "citycode": "gold-coast" }, { "id": "8", "countryId": "5", "cityName": "Hobart", "citycode": "hobart" }, { "id": "9", "countryId": "5", "cityName": "Sunshine Coast", "citycode": "sunshine-coast" }, { "id": "10", "countryId": "5", "cityName": "Canberra", "citycode": "canberra" }, { "id": "11", "countryId": "5", "cityName": "Nth Queensland", "citycode": "nth-queensland" }, { "id": "12", "countryId": "5", "cityName": "Wollongong", "citycode": "wollongong" }, { "id": "13", "countryId": "5", "cityName": "Rest of Australia", "citycode": "rest-of-australia" }, { "id": "14", "countryId": "5", "cityName": "Newcastle \/ Central Coast", "citycode": "newcastle-central-coast" }]
+        let option=[]
+        if(options.length>0){
+            options.forEach(role=>{
+                let roleData={}
+                roleData.value = role.id
+                roleData.label = role.cityName
+                option.push(roleData)
+            })
+        }
         return (
-            <div ref={this.setWrapperRef} className="dropdowndiv select" onClick={this.onOpen}>
-                <div style={{
-                    
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-around', borderRadius: '5px'
-                }}>
-                    {/* <img src="./images/clock.svg" alt="calendar icon" className="e-icon"></img> */}
-                    <span>current time:</span>
-                    <span>{time}</span>
-                    {/*  /map-pin.svg" alt="calendar icon" className="e-icon"></img> */}
-
-                </div>
-                {/* <SimpleBarReact className={`dropdownlist `} style={{ maxHeight: 200 }}> */}
-                    <ul>{items}</ul>
-
-                {/* </SimpleBarReact> */}
+            <div className="dropdown column">
+               
+                <Select options={option} />
             </div>
         )
     }

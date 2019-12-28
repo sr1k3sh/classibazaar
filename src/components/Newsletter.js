@@ -23,7 +23,10 @@ export default class NewsLetter extends Component {
             method: 'POST',
             body: data,
         })
+        .then((response)=>
         alert("email has been sent")
+        
+        )
         this.refs.email.value='';
     }
     render() {
@@ -36,7 +39,7 @@ export default class NewsLetter extends Component {
                     </div>
                     <div className="newsletter-signup">
                         <form onSubmit={this.handleClick} className="row align-center">
-                            <input ref="email" value={this.state.email} placeholder="Enter your email address" onChange={this.getEmail}></input>
+                            <input type="email" ref="email" value={this.state.email} placeholder="Enter your email address" onChange={this.getEmail}></input>
                             <div onClick={this.handleClick} className='row align-center'><span>Signup Now</span></div>
                         </form>
                     </div>

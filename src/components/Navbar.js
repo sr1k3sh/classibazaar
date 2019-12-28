@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './navbar.css'
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
 import { Link } from 'react-router-dom';
-import { Dropdown } from 'semantic-ui-react';
+import $ from 'jquery'
+import DropDown from '../cardcompoents/DropDown';
 export default class Navbar extends Component {
     constructor(){
         super()
@@ -11,51 +12,15 @@ export default class Navbar extends Component {
         }
     }
     componentDidMount(){
-        // $('.city-dropdown').click(_=>{
-        //     $('.dropdown').slideToggle()
-        // })
+        $('.city-dropdown').click(_=>{
+            $('.dropdown').slideDown()
+            // $('.dropdown').slideToggle()
+        })
        
     }
 
     render() {
-        const friendOptions = [
-            {
-                key: 'Jenny Hess',
-                text: 'Jenny Hess',
-                value: 'Jenny Hess',
-                image: { avatar: true, src: '/images/avatar/small/jenny.jpg' },
-            },
-            {
-                key: 'Elliot Fu',
-                text: 'Elliot Fu',
-                value: 'Elliot Fu',
-                image: { avatar: true, src: '/images/avatar/small/elliot.jpg' },
-            },
-            {
-                key: 'Stevie Feliciano',
-                text: 'Stevie Feliciano',
-                value: 'Stevie Feliciano',
-                image: { avatar: true, src: '/images/avatar/small/stevie.jpg' },
-            },
-            {
-                key: 'Christian',
-                text: 'Christian',
-                value: 'Christian',
-                image: { avatar: true, src: '/images/avatar/small/christian.jpg' },
-            },
-            {
-                key: 'Matt',
-                text: 'Matt',
-                value: 'Matt',
-                image: { avatar: true, src: '/images/avatar/small/matt.jpg' },
-            },
-            {
-                key: 'Justen Kitsune',
-                text: 'Justen Kitsune',
-                value: 'Justen Kitsune',
-                image: { avatar: true, src: '/images/avatar/small/justen.jpg' },
-            },
-        ]
+       
         return (
             <div className="navbar">
                 <div className="container row justify-space-between align-center">
@@ -92,10 +57,7 @@ export default class Navbar extends Component {
                                     {/* <img width="14px" src="./images/map-pin.svg" alt="login icons"/>
                             <span  style={{color:'#fff',marginRight:'4px'}}>{this.state.location}</span>
                                     <img width="14px" src="./images/chevron-down.svg" alt="menu"></img> */}
-                                    <Dropdown 
-                                    placeholder='Select Friend'
-                                        fluid
-                                        selection options={friendOptions}></Dropdown>
+                                    <DropDown></DropDown>
                                 </div>
                             </div>
                         </div>
