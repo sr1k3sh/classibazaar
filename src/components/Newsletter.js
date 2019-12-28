@@ -2,9 +2,29 @@ import React, { Component } from 'react'
 import './newsletter.css'
 
 export default class NewsLetter extends Component {
-    
+    constructor(){
+        super()
+        this.state={
+            email:''
+        }
+    }
     componentDidMount(){
        
+    }
+    getEmail=(e)=>{
+        this.setState({
+            email:e.target.value
+        })
+        
+    }
+    handleClick=()=>{
+        const data = this.state.email
+        fetch('http://staging.classibazaar.com.au/api/deal/newsletter?fbclid=IwAR0hdvqe6NKlk40lZ-S3yKPtj6hRJ84iCcsJRgEr-BuBurQnP40hZ0hEVoA', {
+            method: 'POST',
+            body: data,
+        })
+        alert("email has been sent")
+        this.refs.email.value='';
     }
     render() {
         return (
@@ -15,9 +35,9 @@ export default class NewsLetter extends Component {
                         <h2>Signup For Newsletter:</h2>
                     </div>
                     <div className="newsletter-signup">
-                        <form className="row align-center">
-                            <input></input>
-                            <div className='row align-center'><span>Signup Now</span></div>
+                        <form onSubmit={this.handleClick} className="row align-center">
+                            <input ref="email" value={this.state.email} placeholder="Enter your email address" onChange={this.getEmail}></input>
+                            <div onClick={this.handleClick} className='row align-center'><span>Signup Now</span></div>
                         </form>
                     </div>
                 </div>

@@ -4,7 +4,7 @@ export default class Facebook extends Component {
     render() {
         return (
             <React.Fragment>
-                <svg version="1.1" className="get-icon" fill="#fff" id="Capa_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
+                <svg version="1.1" className="get-icon" fill={this.props.fill} id="Capa_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
 	 width="96.124px" height="96.123px" viewBox="0 0 96.124 96.123">
                     <g>
                         <path d="M72.089,0.02L59.624,0C45.62,0,36.57,9.285,36.57,23.656v10.907H24.037c-1.083,0-1.96,0.878-1.96,1.961v15.803

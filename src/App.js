@@ -27,7 +27,7 @@ function App() {
             <Route exact path='/' component={HomePage}/>
             <Route path='/shopping' component={Listpage}/>
             <Route path='/Holiday-Travel' component={Listpage}/>
-            <Route path='/detail-page' component={DetailPage}/>
+            <Route path='/detail-page' component={()=><DetailPage crumb="detail-page"></DetailPage>}/>
           
             <ReferCard></ReferCard>
         </Router>

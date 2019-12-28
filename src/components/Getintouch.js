@@ -15,19 +15,19 @@ export default class Getintouch extends Component {
                     <div className="row justify-space-between" style={{width:'40%'}}>
                         <div className="touch-icon">
                             {/* <img width="100%" src="./images/facebook-logo.svg"></img> */}
-                            <Facebook></Facebook>
+                            <Facebook fill="#fff"></Facebook>
                         </div>
                         <div className="touch-icon">
-                            <Twitter></Twitter>     
+                            <Twitter fill="#fff"></Twitter>     
                         </div>
                         <div className="touch-icon">
-                            <Instagram></Instagram>
+                            <Instagram fill="#fff"></Instagram>
                         </div>
                         <div className="touch-icon">
-                            <Youtube></Youtube>
+                            <Youtube fill="#fff"></Youtube>
                         </div>
                         <div className="touch-icon">
-                            <Google></Google>
+                            <Google fill="#fff"></Google>
                         </div>
                     </div>
                 </div>
