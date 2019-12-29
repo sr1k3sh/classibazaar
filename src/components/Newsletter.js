@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './newsletter.css'
+import { base_url } from '../constant/action-types'
 
 export default class NewsLetter extends Component {
     constructor(){
@@ -18,15 +19,26 @@ export default class NewsLetter extends Component {
         
     }
     handleClick=()=>{
-        const data = this.state.email
-        fetch('http://staging.classibazaar.com.au/api/deal/newsletter?fbclid=IwAR0hdvqe6NKlk40lZ-S3yKPtj6hRJ84iCcsJRgEr-BuBurQnP40hZ0hEVoA', {
+        const email = this.state.email
+        console.log(email)
+        fetch(base_url+'api/deal/newsletter?fbclid=IwAR0hdvqe6NKlk40lZ-S3yKPtj6hRJ84iCcsJRgEr-BuBurQnP40hZ0hEVoA', {
+            
             method: 'POST',
-            body: data,
+            headers: {
+                'Accept': 'application/jsonp',
+                'Content-Type': 'application/jsonp',
+                
+            },
+            body:JSON.stringify({"email":email})
         })
-        .then((response)=>
-        alert("email has been sent")
-        
-        )
+            .then(res => res.json())
+            .then(res => console.log(res));
+        // .then((response)=>
+        //     alert(JSON.stringify(response))
+        // )
+        // .catch((e)=>
+        //     alert(e)
+        // )
         this.refs.email.value='';
     }
     render() {

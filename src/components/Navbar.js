@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './navbar.css'
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import $ from 'jquery'
 import DropDown from '../cardcompoents/DropDown';
+import Listpage from '../pages/Listpage';
 export default class Navbar extends Component {
     constructor(){
         super()
@@ -18,7 +19,9 @@ export default class Navbar extends Component {
         })
        
     }
-
+    handleSearch=()=>{
+        console.log('searched')
+    }
     render() {
        
         return (
@@ -45,7 +48,8 @@ export default class Navbar extends Component {
                             <div className="left-div">
                                 <form className="row">
                                     <input placeholder="search all products here..."></input>
-                                    <div className="search-button"><span>search</span></div>
+
+                                    <div className="search-button" onClick={this.handleSearch}><Link to="/products"><span>search</span></Link></div>
                                 </form>
                             </div>
                             <div className="right-div row justify-space-around align-center" style={{width:'100%'}}>

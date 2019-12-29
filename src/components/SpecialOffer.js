@@ -5,10 +5,41 @@ import Heart from '../IconsComponents/Heart'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetch_featured_deals } from './../action/FeaturedActions'
+            const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+
 class SpecialOfffer extends Component {
   
     componentDidMount() {
         this.props.dispatch(fetch_featured_deals());
+        
+    }
+    
+    date=(startDate,endDate)=>{
+        var date1 = startDate;
+        var date2 = endDate;
+
+        // First we split the values to arrays date1[0] is the year, [1] the month and [2] the day
+        date1 = date1.split('-');
+        date2 = date2.split('-');
+
+        // Now we convert the array to a Date object, which has several helpful methods
+        date1 = new Date(date1[0], date1[1], date1[2]);
+        date2 = new Date(date2[0], date2[1], date2[2]);
+
+        // We use the getTime() method and get the unixtime (in milliseconds, but we want seconds, therefore we divide it through 1000)
+        var date1_unixtime = parseInt(date1.getTime() / 1000);
+        var date2_unixtime = parseInt(date2.getTime() / 1000);
+
+        // This is the calculated difference in seconds
+        var timeDifference = date2_unixtime - date1_unixtime;
+
+        // in Hours
+        var timeDifferenceInHours = timeDifference / 60 / 60;
+
+        // and finaly, in days :)
+        var timeDifferenceInDays = timeDifferenceInHours / 24;
+
+        return <span className="normal-font" style={{ color: "#fff" }} >{timeDifferenceInDays} days remaining</span>
     }
     render() {
         const { error, loading, featured } = this.props;
@@ -16,7 +47,12 @@ class SpecialOfffer extends Component {
             return <div>Error: {error.message}</div>;
         } else if (loading) {
             return <div>Loading...</div>;
-        } else {         
+        } else {   
+            
+
+            // const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+           
+                  
             return (
               
 
@@ -40,12 +76,14 @@ class SpecialOfffer extends Component {
                                 <span className="normal-font" style={{ marginRight: '10px', color: '#fff' }}>| </span>
                                 <img style={{ marginRight: '10px' }} width="14px" src="./images/clock.svg" alt="clock" />
                                 {featured.map(item=>(
-                                    
-                                    <span className="normal-font" style={{ color: "#fff" }}>
-                                        {
-                                            49    
-                                        } days remaining
-                                    </span>
+                                    // console.log(item.startDate)
+                                     this.date(item.startDate,item.endDate)
+                                    // console.log(this.days_between("13/04/2010" - "16/04/2010" ))
+                                    // <span className="normal-font" style={{ color: "#fff" }}>
+                                    //     {
+                                    //      item.startDate-item.endDate   
+                                    //     } days remaining
+                                    // </span>
                                 ))}
                             </div>
                         </div>

@@ -1,3 +1,5 @@
+import { base_url } from "../constant/action-types";
+
 export const FETCH_FEATURED_BEGIN = "FETCH_FEATURED_BEGIN";
 export const FETCH_FEATURED_SUCCESS ="FETCH_FEATURED_SUCCESS";
 export const FETCH_FEATURED_FAILURE ="FETCH_FEATURED_FAILURE";
@@ -9,7 +11,7 @@ function fetchurl(url) {
 export function fetch_featured_deals() {
     return dispatch => {
         dispatch(fetchFeaturedBegin());
-        return fetchurl('http://staging.classibazaar.com.au/api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw')
+        return fetchurl(base_url+'api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw')
             .then(json => {
                 dispatch(fetchFeaturedSuccess(json.featured_deals));
                 

@@ -17,6 +17,35 @@ export default class DetailPage extends Component {
         },
         zoom: 11
     };
+   
+
+    updateClock=()=> {
+    var startDateTime = new Date(2014, 8, 26, 2, 1, 0, 0); // YYYY (M-1) D H m s (start time and date from DB)
+    var startStamp = startDateTime.getTime();
+
+    var newDate = new Date();
+    var newStamp = newDate.getTime();
+
+    var timer;
+    newDate = new Date();
+    newStamp = newDate.getTime();
+    var diff = Math.round((newStamp - startStamp) / 1000);
+
+    var d = Math.floor(diff / (24 * 60 * 60));
+    diff = diff - (d * 24 * 60 * 60);
+    var h = Math.floor(diff / (60 * 60));
+    diff = diff - (h * 60 * 60);
+    var m = Math.floor(diff / (60));
+    diff = diff - (m * 60);
+    var s = diff;
+        return <span>{d + " day(s), " + h + " hour(s), " + m + " minute(s), " + s + " second(s) working"}</span>
+    // d?ocument.getElementById("time-elapsed").innerHTML = d + " day(s), " + h + " hour(s), " + m + " minute(s), " + s + " second(s) working";
+       
+}
+    componentDidMount(){
+       
+    }
+
     render() {
         return (
             <div className="detail-page">
@@ -65,7 +94,8 @@ export default class DetailPage extends Component {
                                 </div>
                                 <div className="limited-offer column align-center justify-center" >
                                     <span>Limited time remaining</span>
-                                    <span className="bold">180d 15h 3m 20s</span>
+                                    {this.updateClock()}
+                                    {/* <span className="bold">180d 15h 3m 20s</span> */}
                                 </div>
                                 <div className="column justify-space-around" style={{height:'100px'}}>
                                     <Button text="Continue to Checkout" width="100%" padding="10px 0px"></Button>

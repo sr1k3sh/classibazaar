@@ -35,7 +35,7 @@ class PopularDeal extends Component {
     }
 }
 function mapStateToProps(state){
-    console.log(state.popular)
+    // console.log(state.popular)
     return({
         popular: state.popular.popular,
         loading: state.popular.loading,

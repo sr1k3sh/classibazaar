@@ -1,10 +1,12 @@
+import { base_url } from "../constant/action-types";
+
 export const FETCH_POPULAR_BEGIN = "FETCH_POPULAR_BEGIN";
 export const FETCH_POPULAR_SUCCESS = "FETCH_POPULAR_SUCCESS";
 export const FETCH_POPULAR_FAILURE = "FETCH_POPULAR_FAILURE";
 export function fetch_popular_deals() {
     return dispatch => {
         dispatch(fetchPopularBegin());
-        return fetch(('http://staging.classibazaar.com.au/api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw'))
+        return fetch((base_url+'api/deal/home?fbclid=IwAR3MT99zCT2Hp1D1mCYEL29B8e3HqpulWcgOtOp3oP-MUNf02sX0ZR5enEw'))
             .then(handleErrors)
             .then(res => res.json())
             .then(json => {
