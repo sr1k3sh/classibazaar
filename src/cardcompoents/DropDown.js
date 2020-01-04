@@ -10,9 +10,11 @@ class DropDown extends Component {
         super()
         this.state={
             selectedOption:'',
-            data:[]
+            data:[],
+            
         }
     }
+    
     handleChange = selectedOption => {
         this.setState(
             { selectedOption },
@@ -25,7 +27,34 @@ class DropDown extends Component {
     
     render() {
         const { error, loading, cities } = this.props
-        
+        const style={
+            control: base => ({
+                ...base,
+                background: this.props.background,
+                border: `1px solid ${this.props.background}`,
+                boxShadow:'none',
+                cursor:'pointer',
+                transition:'all 0.3s ease-in-out',
+                '&:hover': {
+                    borderBottom: '1px solid #fff',
+                    borderTop:'none',
+                    borderLeft:'none',
+                    borderRight:'none',
+                    boxShadow: 'none',
+                },
+                '&:focus':{
+                    outline:'none'
+                }
+            }),
+            placeholder: (defaultStyles) => {
+                return {
+                    ...defaultStyles,
+                    color: this.props.color,
+                
+                }
+            },
+           
+        }    
         
         if (error) {
             return <div>Error: {error.message}</div>;
@@ -46,7 +75,17 @@ class DropDown extends Component {
                 return (
                     <div className="dropdown column">
                     
-                        <Select options={option} />
+                        <Select placeholder="Australia" options={option} theme={theme => ({
+                            ...theme,
+                            borderRadius: 3,
+                            
+                            colors: {
+                                ...theme.colors,
+                                neutral90:'blue',
+                                // primary25: 'hotpink',
+                                primary: 'grey',
+                            },
+                        })} styles={style} />
                     </div>
                 )
         }

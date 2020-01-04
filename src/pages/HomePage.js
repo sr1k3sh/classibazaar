@@ -4,8 +4,7 @@ import ServiceContainer from './../components/ServiceContainer';
 import RecentDeal from './../components/RecentDeal';
 import BestDeal from './../components/BestDeal';
 import PopularDeal from './../components/PopularDeal';
-import Post from './../components/Post';
-
+import ReferCard from './../cardcompoents/ReferCard'
 
 
 
@@ -18,6 +17,7 @@ export default class HomePage extends Component {
                
                 <SpecialOfffer></SpecialOfffer>
                 <ServiceContainer></ServiceContainer>
+                <ReferCard></ReferCard>
                 <RecentDeal></RecentDeal>
                 <BestDeal></BestDeal>
                 <PopularDeal></PopularDeal>

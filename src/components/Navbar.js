@@ -1,26 +1,61 @@
 import React, { Component } from 'react'
 import './navbar.css'
 import { MediaMatcher, ProvideMediaMatchers } from 'react-media-match';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 import $ from 'jquery'
 import DropDown from '../cardcompoents/DropDown';
 import Listpage from '../pages/Listpage';
-export default class Navbar extends Component {
+import { connect } from 'react-redux';
+import { fetch_login } from '../action/loginAction';
+class Navbar extends Component {
     constructor(){
         super()
         this.state={
-            location:'Australia'
+            location:'Australia',
+            username:''
         }
     }
+    
     componentDidMount(){
         $('.city-dropdown').click(_=>{
             $('.dropdown').slideDown()
-            // $('.dropdown').slideToggle()
+                })
+        $('.login-button.user-logout').click(_=>{
+            $('.logout').slideToggle()
         })
        
+        
+    }
+    componentWillMount(){
+        // console.log(localStorage.getItem('email'))
     }
     handleSearch=()=>{
         console.log('searched')
+    }
+    componentWillUnmount(){
+        localStorage.removeItem('email')
+        localStorage.removeItem('token')
+    }
+    handleLoggedName=()=>{
+        if(this.props.email==null)
+            return <Link to="login"><span className="login-button" style={{ color: '#fff' }}>login</span></Link>
+        if(this.props.email) 
+            return (
+                <div className="column logout-container">
+                    <span className="login-button user-logout" style={{fontSize:'12px',cursor:'pointer', color: '#fff' }}>welcome,{this.props.email}</span>
+                    <div className="column logout" onClick={this.handleLoggedOut}>
+                        <span>logout</span>
+                    </div>
+                </div>
+            
+            )
+            
+    }
+    handleLoggedOut=()=>{
+        
+        localStorage.removeItem('email')
+        window.location.reload();
+
     }
     render() {
        
@@ -55,13 +90,13 @@ export default class Navbar extends Component {
                             <div className="right-div row justify-space-around align-center" style={{width:'100%'}}>
                                 <div className="row align-center">
                                     <img style={{marginRight:'4px'}} width="14px" src="./images/user.svg" alt="login icons"/>
-                                    <span style={{color:'#fff'}}>Login</span>
+                                    {this.handleLoggedName()}
                                 </div>
                                 <div className=" city-dropdown row align-center">
                                     {/* <img width="14px" src="./images/map-pin.svg" alt="login icons"/>
                             <span  style={{color:'#fff',marginRight:'4px'}}>{this.state.location}</span>
                                     <img width="14px" src="./images/chevron-down.svg" alt="menu"></img> */}
-                                    <DropDown></DropDown>
+                                    <DropDown background="#102a39" color="#fff"></DropDown>
                                 </div>
                             </div>
                         </div>
@@ -71,3 +106,10 @@ export default class Navbar extends Component {
         )
     }
 }
+function mapStateToProps(state){
+    // console.log(state.logged.token.email)
+    return({
+        email:state.logged.token.email
+    })
+}
+export default connect(mapStateToProps)(Navbar)

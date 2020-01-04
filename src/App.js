@@ -1,38 +1,37 @@
 import React from 'react';
-
 import './App.css';
 import './library.css';
-import Navbar from './components/Navbar';
-import Menubar from './components/Menubar';
-import Footer from './components/Footer';
-import NewsLetter from './components/Newsletter';
-import Getintouch from './components/Getintouch';
 import {Provider} from 'react-redux'
 import store from './store/index'
-
-import { HashRouter as Router } from 'react-router-dom';
-import ReferCard from './cardcompoents/ReferCard';
+import {HashRouter as Router, Route, BrowserRouter } from 'react-router-dom';
+import RouteHome from './pages/RouteHome';
+import Login from './pages/Login';
 import RoutePage from './pages/RoutePage';
+import HomePage from './pages/HomePage';
+class App extends React.Component {
+  componentDidMount(){}
+  render(){
 
-function App() {
-  
-  return (
-    <Provider store={store}>
-      <div className="App column">
-        <Router>
-            <Navbar></Navbar>
-            <Menubar></Menubar>
-         
-            <RoutePage></RoutePage>
-            <ReferCard></ReferCard>
-        </Router>
-        <NewsLetter></NewsLetter>
-                <Getintouch></Getintouch>
-    
-        <Footer></Footer>
-      </div>
-    </Provider>
-  );
+    return (
+      <Provider store={store}>
+       
+          {/* <Route path="/login" component={()=><Login></Login>}></Route> */}
+          
+          <div className="App home column">
+            <BrowserRouter>
+                <Route exact path="/" component={()=><RouteHome>
+                  <HomePage></HomePage>
+                </RouteHome>}/>
+                <Route path="/login" component={Login}></Route>
+                <RoutePage></RoutePage>
+            </BrowserRouter>
+              
+          </div>
+        
+        
+      </Provider>
+    );
+  }
 }
 
 export default App;

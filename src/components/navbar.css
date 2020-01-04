@@ -34,6 +34,29 @@
     font-weight: bold;
     font-size: 12px;
 }
+.navbar .logout-container{
+    position: relative;
+}
+.navbar .logout{
+    display: none;
+    background:#40b866;
+    position: absolute;
+    top:100%;
+    /* width:100%; */
+    border-radius: 2px;
+    padding:4px 6px;
+    cursor: pointer;
+
+
+}
+.navbar .logout:hover{
+    background: grey;
+}
+.navbar .logout span{
+    font-size: 12px;
+    width:100%;
+    color:#fff;
+}
 @media only screen and (max-width: 768px) {
    .navbar .logo img{
         width:50px;
